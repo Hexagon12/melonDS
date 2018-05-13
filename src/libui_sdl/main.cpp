@@ -20,7 +20,14 @@
 #include <time.h>
 #include <stdio.h>
 
-#include <SDL2/SDL.h>
+#include "../externals/SDL2/include/SDL_stdinc.h"
+#include "../externals/SDL2/include/SDL_thread.h"
+#include "../externals/SDL2/include/SDL_joystick.h"
+#include "../externals/SDL2/include/SDL_audio.h"
+#include "../externals/SDL2/include/SDL_timer.h"
+#include "../externals/SDL2/include/SDL_quit.h"
+#include "../externals/SDL2/include/SDL_hints.h"
+#include "../externals/SDL2/include/SDL.h"
 #include "libui/ui.h"
 
 #include "../types.h"
@@ -35,8 +42,8 @@
 #include "../SPU.h"
 #include "../Wifi.h"
 #include "../Platform.h"
-#include "../Config.h"
 
+#define strcasecmp _stricmp
 
 const int kScreenRot[4] = {0, 1, 2, 3};
 const int kScreenGap[6] = {0, 1, 8, 64, 90, 128};
@@ -1247,11 +1254,11 @@ int main(int argc, char** argv)
     return 0;
 }
 
-#ifdef __WIN32__
+#ifdef WIN32
 
-#include <windows.h>
+#include <Windows.h>
 
-int CALLBACK WinMain(HINSTANCE hinst, HINSTANCE hprev, LPSTR cmdline, int cmdshow)
+int main(HINSTANCE hinst, HINSTANCE hprev, LPSTR cmdline, int cmdshow)
 {
     char cmdargs[16][256];
     int arg = 1;

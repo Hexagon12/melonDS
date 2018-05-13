@@ -20,7 +20,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <SDL2/SDL.h>
+#include "../externals/SDL2/include/SDL_joystick.h"
+#include "../externals/SDL2/include/SDL_timer.h"
 #include "libui/ui.h"
 
 #include "../types.h"

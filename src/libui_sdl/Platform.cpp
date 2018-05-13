@@ -19,12 +19,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <SDL2/SDL.h>
-#include <pcap/pcap.h>
+#include "../externals/SDL2/include/SDL_stdinc.h"
+#include "../externals/SDL2/include/SDL_thread.h"
+#include "../externals/SDL2/include/SDL_loadso.h"
+#include "../pcap/pcap.h"
 #include "../Platform.h"
 #include "../Config.h"
 
-#ifdef __WIN32__
+#ifdef WIN32
 	#include <winsock2.h>
 	#include <ws2tcpip.h>
 	#define socket_t    SOCKET
